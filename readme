@@ -1,0 +1,5 @@
+# Untuk development (localhost)
+./docker-compose.sh dev
+
+# Untuk production (domain)
+./docker-compose.sh prod

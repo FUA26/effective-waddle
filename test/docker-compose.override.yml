@@ -1,0 +1,16 @@
+
+
+services:
+  keycloak:
+    environment:
+      - KC_HOSTNAME=localhost
+    ports:
+      - "8080:8080"
+
+  db:
+    environment:
+      - POSTGRES_USER=keycloak
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=keycloak
+    volumes:
+      - postgres_data:/var/lib/postgresql/data

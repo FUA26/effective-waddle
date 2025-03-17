@@ -1,0 +1,8 @@
+version: '3.8'
+
+networks:
+  keycloak-net:
+    driver: bridge
+
+volumes:
+  postgres_data:

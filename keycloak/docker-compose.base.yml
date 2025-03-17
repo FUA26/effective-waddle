@@ -1,0 +1,11 @@
+version: "3.9"
+
+networks:
+  keycloak-network:
+    driver: bridge
+
+volumes:
+  postgres-keycloak-data:
+  postgres-app-data:
+  nginx-data:
+  nginx-letsencrypt:
