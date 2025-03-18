@@ -11,6 +11,18 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
+    
+  external_postgres:
+    image: postgres:latest
+    container_name: external_postgres
+    environment:
+      - POSTGRES_DB=${EXTERNAL_DB_NAME}
+      - POSTGRES_USER=${EXTERNAL_DB_USER}
+      - POSTGRES_PASSWORD=${EXTERNAL_DB_PASSWORD}
+    volumes:
+      - external_postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
 
 volumes:
   postgres_data:
+  external_postgres_data:
