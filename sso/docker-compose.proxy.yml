@@ -1,0 +1,22 @@
+services:
+  npm:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx_proxy_manager
+    restart: unless-stopped
+    ports:
+      - "80:80"      # HTTP
+      - "81:81"      # NPM Admin UI
+      - "443:443"    # HTTPS
+    environment:
+      - DB_SQLITE_FILE=/data/database.sqlite
+      - DISABLE_IPV6=true
+      - NPM_ADMIN_EMAIL=${NPM_ADMIN_EMAIL}
+      - NPM_ADMIN_USER=${NPM_ADMIN_USER}
+      - NPM_ADMIN_PASSWORD=${NPM_ADMIN_PASSWORD}
+    volumes:
+      - npm_data:/data
+      - npm_letsencrypt:/etc/letsencrypt
+
+volumes:
+  npm_data:
+  npm_letsencrypt:
